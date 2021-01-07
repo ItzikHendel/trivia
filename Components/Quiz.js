@@ -1,4 +1,5 @@
 import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
 export default function Quiz() {
@@ -12,9 +13,11 @@ export default function Quiz() {
     };
 
     return (
-        <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} >
-            <Box bgcolor="primary.main" color="primary.contrastText" p={2}>{quizData.question}</Box>
-            {quizData.answers.map((answer) => <Box key={answer} bgcolor="text.disabled" color="background.paper" m={2} p={2}>{answer}</Box>)}
-        </Typography>
+        <Container>
+            <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} >
+                <Box bgcolor="primary.main" color="primary.contrastText" p={2}>{quizData.question}</Box>
+                {quizData.answers.map((answer) => <Box key={answer} bgcolor="text.disabled" color="background.paper" m={2} p={2}>{answer}</Box>)}
+            </Typography>
+        </Container>
     );
 }
