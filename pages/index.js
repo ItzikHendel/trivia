@@ -1,15 +1,28 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
+import 'fontsource-roboto';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Quiz from '../Components/Quiz';
+
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Trivia</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
       </Head>
 
-      <main className={styles.main}>
+      <Container>
+        <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} >
+          <Quiz /> 
+        </Typography>
+      </Container>
+
+      {/*     <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
@@ -59,7 +72,7 @@ export default function Home() {
           Powered by{' '}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
-      </footer>
+      </footer> */}
     </div>
   )
 }
