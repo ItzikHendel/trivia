@@ -2,7 +2,7 @@ import quizData from '../public/quizData';
 import Head from 'next/head'
 //import styles from '../styles/Home.module.css'
 
-import Quiz from '../Components/Quiz';
+import Game from '../Components/Game';
 
 export default function Home() {
 
@@ -17,7 +17,7 @@ export default function Home() {
 
       </Head>
 
-      {isServer ? null : <Quiz quizData={quizData} />}
+      {isServer ? null : <Game quizData={quizData} />}
     </div>
   )
 }
