@@ -1,13 +1,20 @@
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-export default function Result({ answerStatus }) {
-    const resultMsg = answerStatus === "notSelected" ? null :
-        (answerStatus === 'correct' ?
-            <Box bgcolor="success.main" color="success.contrastText" p={2}>Correct!</Box> :
-            <Box bgcolor="error.main" color="error.contrastText" p={2}>Wrong!</Box>
-        );
+export default function Result({ isAnswerCorrect, correctAnswer }) {
+    if (isAnswerCorrect === null)
+        return null;
+    const correctAnswerMsg = <Box bgcolor="success.main" color="success.contrastText" p={2}>Correct!</Box>;
+    const wrongAnswerMsg = (<>
+        <Box bgcolor="error.main" color="error.contrastText" p={2}>Wrong!</Box>
+        <br />
+        <Box color="primary.main" boxShadow={1}>The correct answer is: <b>{correctAnswer}</b></Box>
+    </>);
+    const resultMsg = isAnswerCorrect ? correctAnswerMsg : wrongAnswerMsg;
     return (
-        <Typography component="div" style={{ backgroundColor: '' }} > {resultMsg} </Typography>
+        <>
+            <br />
+            <Typography component="div" variant="h6" style={{ backgroundColor: '' }} > {resultMsg} </Typography>
+        </>
     )
 }

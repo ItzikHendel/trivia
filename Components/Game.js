@@ -5,15 +5,15 @@ import Quiz from './Quiz';
 import Result from './Result';
 
 export default function Game({ quizData }) {
-    const [answerStatus, setAnswerStatus] = useState('notSelected');
+    const [isAnswerCorrect, setIsAnswerCorrect] = useState(null);
     const { question, answers } = quizData;
     const handleAnswerSelected = useCallback((answer) => {
-        setAnswerStatus(answer === answers[0] ? 'correct' : 'wrong');
+        setIsAnswerCorrect(answer === answers[0]);
     }, []);
     return (
         <Container>
             <Quiz question={question} answers={answers} handleAnswerSelected={handleAnswerSelected} />
-            <Result answerStatus={answerStatus} />
+            <Result isAnswerCorrect={isAnswerCorrect} correctAnswer={answers[0]} />
         </Container>
     );
 };
