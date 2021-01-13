@@ -15,6 +15,17 @@ const quizDataArray = [
     source: "Biography",
     link: "https://www.biography.com/athlete/dwyane-wade"
   },
+  {
+    question: "Which NBA team has the best record of wins during the regular season?",
+    answers: ["Golden State Warriors", "Chicago Bulls", "Los Angeles Lakers", "Boston Celtics"],
+    category: "Sport",
+    quote: "The 2015–16 Golden State Warriors season was the 70th season of the franchise in the National Basketball Association (NBA), and its 54th in the San Francisco Bay Area.The Warriors entered the season as the defending NBA champions and they set the best ever regular-season record of 73–9, breaking the 1995–96 Chicago Bulls record of 72–10.",
+    source: "Wikipedia",
+    link: "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season"
+  },
+
+
+  
 ];
 
 export default quizDataArray;
