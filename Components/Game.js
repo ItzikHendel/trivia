@@ -5,17 +5,22 @@ import Quiz from './Quiz';
 import Result from './Result';
 import Next from './Next';
 
-export default function Game({ quizData }) {
+export default function Game({ quizDataArray }) {
     const [isAnswerCorrect, setIsAnswerCorrect] = useState(null);
-    const { question, answers, quote, source, link } = quizData;
-    const handleAnswerSelected = useCallback((answer) => {
-        setIsAnswerCorrect(answer === answers[0]);
-    }, []);
+    const [quizIndex, setQuizIndex] = useState(0);
+
+    const { question, answers, quote, source, link } = quizDataArray[quizIndex];
+
+    const onNextClick = () => {        
+        setIsAnswerCorrect(null);
+        setQuizIndex(quizIndex + 1);
+    };
+
     return (
         <Container>
-            <Quiz question={question} answers={answers} handleAnswerSelected={handleAnswerSelected} />
+            <Quiz question={question} answers={answers} handleAnswerSelected={setIsAnswerCorrect} />
             <Result isAnswerCorrect={isAnswerCorrect} correctAnswer={answers[0]} quote={quote} source={source} link={link} />
-            { isAnswerCorrect !== null ? <Next /> : null }
+            { (isAnswerCorrect !== null && quizIndex + 1 < quizDataArray.length) ? <Next onNextClick={onNextClick} /> : null}
         </Container>
     );
 };

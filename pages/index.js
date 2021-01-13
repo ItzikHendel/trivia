@@ -1,4 +1,4 @@
-import quizData from '../public/quizData';
+import quizDataArray from '../public/quizData';
 import Head from 'next/head'
 //import styles from '../styles/Home.module.css'
 
@@ -18,7 +18,7 @@ export default function Home() {
 
       </Head>
 
-      {isServer ? null : <Game quizData={quizData} />}
+      {isServer ? null : <Game quizDataArray={quizDataArray} />}
     </div>
   )
 }
