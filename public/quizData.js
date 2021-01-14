@@ -48,7 +48,7 @@ const quizDataArray = [
     link: "https://www.britannica.com/topic/Burj-Khalifa"
   },
   {
-    question: "Who was the first African American actress or actor ever to be honored with an Oscar?",
+    question: "Who was the first African American actress or actor ever won the Oscar?",
     answers: ["Hattie McDaniel, Gone With the Wind", "Sidney Poitier, Lilies of the Field", "Denzel Washington, Glory", "Noah Cullen, The Defiant Ones"],
     category: "Movies",
     quote: "On February 29, 1940, Gone with the Wind is honored with eight Oscars by the American Academy of Motion Picture Arts and Sciences. An epic Southern romance set during the hard times of the Civil War, the movie swept the prestigious Best Picture, Director, Screenplay, Cinematography, Art Direction, Film Editing, and Actress categories. However, the most momentous award that night undoubtedly went to Hattie McDaniel for her portrayal of “Mammy,” a housemaid and former enslaved woman. McDaniel, who won the Best Supporting Actress Academy Award, was the first African American actress or actor ever to be honored with an Oscar.",
@@ -63,7 +63,25 @@ const quizDataArray = [
     source: "Wikipedia",
     link: "https://en.wikipedia.org/wiki/NBA_Coach_of_the_Year_Award"
   },
+  {
+    question: "Which film won Morgan Freeman the Oscar?",
+    answers: ["Million Dollar Baby (2004)", "Street Smart  (1987)", "Driving Miss Daisy (1989)", "The Shawshank Redemption (1994)"],
+    category: "Movies",
+    quote: " In 1992 he starred along Clint Eastwood in the western revenge film Unforgiven (1992). This would be a first of several collaborations which Eastwood. In 1994, Freeman starred in the prison drama The Shawshank Redemption (1994) for which he received another Academy Award nomination. Freeman also starred in David Fincher's crime thriller Se7en (1995), and Steven Spielberg's historical drama Amistad (1997). Freeman won the Academy Award for Best Supporting Actor for his performance in Clint Eastwood's 2004 sports drama Million Dollar Baby. In 2009 he received his fifth Oscar nomination for playing South African President Nelson Mandela in Eastwood's Invictus (2009). Freeman is also known for his performances in Christopher Nolan's The Dark Knight Trilogy (2005-2012).",
+    source: "Wikipedia",
+    link: "https://en.wikipedia.org/wiki/Morgan_Freeman#Awards_and_nominations"
+  },
+  {
+    question: "Which President has not won a Nobel Prize?",
+    answers: ["Bill Clinton", "Woodrow Wilson", "Barack Obama", "Jimmy Carter"],
+    category: "History",
+    quote: "Our story starts in 1906 when Theodore Roosevelt became the first President to win a Nobel Peace Prize. Since then, three other Presidents and one Vice President have received the honor. Below is a list of recipients from the White House: President Woodrow Wilson in 1920, for his efforts in ending the First World War and help in creating the League of Nations. President Jimmy Carter in 2002, for his efforts in finding “peaceful solutions to international conflicts, advancing democracy and human rights, and promoting economic and social development. Vice President Al Gore in 2007, for his efforts to obtain and spread knowledge about climate change. President Barack Obama in 2009, for his efforts to strengthen international diplomacy and cooperation.",
+    source: "Obamawhitehouse",
+    link: "https://obamawhitehouse.archives.gov/blog/2014/12/10/day-history-four-presidents-and-vp-received-nobel-peace-prize"
+  },
 
+  
+  
 
   
 
