@@ -1,11 +1,9 @@
-import quizDataArray from '../public/quizData';
 import Head from 'next/head'
 //import styles from '../styles/Home.module.css'
 
-import Game from '../Components/Game';
+import Home from '../Components/Home';
 
-export default function Home() {
-
+export default function App() {
   const isServer = typeof window === 'undefined';  //Temp - to avoid mismatch class name by material ui
 
   return (
@@ -18,7 +16,7 @@ export default function Home() {
 
       </Head>
 
-      {isServer ? null : <Game quizDataArray={quizDataArray} />}
+      {isServer ? null : <Home />}
     </div>
   )
 }
