@@ -35,7 +35,7 @@ export default function Game({ quizDataArray, goToSummary }) {
     } else if (quizIndex + 1 < quizDataArray.length) {
         actionButton = <ActionButton text="Next" icon="skip_next" onClick={onNextClick} />
     } else {
-        actionButton = <ActionButton text="Summary" color="secondary" icon="list_alt" onClick={() => console.log("==== Summary clicked! ")} />
+        actionButton = <ActionButton text="Summary" color="secondary" icon="list_alt" onClick={goToSummary} />
     }
 
     /*const stepperNextButton =
