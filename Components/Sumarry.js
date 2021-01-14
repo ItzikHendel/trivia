@@ -2,7 +2,9 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-export default function Summary({ gameData }) {
+export default function Summary({ summaryData }) {
+    console.log("=========");
+    console.log(summaryData);
     return (
         <Container>
             <Typography variant="h1">          

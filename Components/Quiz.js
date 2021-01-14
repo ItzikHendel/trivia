@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-const Quiz = React.memo(({ question, correctAnswer, shuffledAnswers, handleAnswerSelected }) => {
+const Quiz = React.memo(({ question, shuffledAnswers, onAnswerSelected }) => {
     const [isAnswerSelected, setIsAnswerSelected] = useState(false);
 
     useEffect(() => setIsAnswerSelected(false), [question]);
@@ -17,7 +17,7 @@ const Quiz = React.memo(({ question, correctAnswer, shuffledAnswers, handleAnswe
             onClick={() => {
                 if (!isAnswerSelected) {
                     setIsAnswerSelected(true);
-                    handleAnswerSelected(answer === correctAnswer);
+                    onAnswerSelected(answer);
                 }
             }}>
             {answer}

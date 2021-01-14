@@ -11,12 +11,14 @@ import Result from './Result';
 import ActionButton from './ActionButton';
 
 let shuffledAnswers;
+let gameData = [];
 
 export default function Game({ quizDataArray, goToSummary }) {
     const [isAnswerCorrect, setIsAnswerCorrect] = useState(null);
     const [quizIndex, setQuizIndex] = useState(0);
 
     const { question, answers, quote, source, link } = quizDataArray[quizIndex];
+    let actionButton;
 
     if (!shuffledAnswers) {
         shuffledAnswers = shuffle(answers);
@@ -28,14 +30,21 @@ export default function Game({ quizDataArray, goToSummary }) {
         shuffledAnswers = null;
     };
 
-    let actionButton;
+    const onAnswerSelected = (answer) => {
+        let isCorrect = answer === answers[0];
+        setIsAnswerCorrect(isCorrect);
+        gameData.push({
+            userAnswer: answer,
+            isCorrect
+        });
+    }
 
     if (isAnswerCorrect === null) {
         actionButton = null;
     } else if (quizIndex + 1 < quizDataArray.length) {
         actionButton = <ActionButton text="Next" icon="skip_next" onClick={onNextClick} />
     } else {
-        actionButton = <ActionButton text="Summary" color="secondary" icon="list_alt" onClick={goToSummary} />
+        actionButton = <ActionButton text="Summary" color="secondary" icon="list_alt" onClick={() => goToSummary(gameData)} />
     }
 
     /*const stepperNextButton =
@@ -47,9 +56,8 @@ export default function Game({ quizDataArray, goToSummary }) {
         <Container>
             <Quiz
                 question={question}
-                correctAnswer={answers[0]}
                 shuffledAnswers={shuffledAnswers}
-                handleAnswerSelected={setIsAnswerCorrect} />
+                onAnswerSelected={onAnswerSelected} />
 
             <MobileStepper
                 variant="dots"
