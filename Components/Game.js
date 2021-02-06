@@ -57,6 +57,7 @@ export default function Game({ quizDataArray, goToSummary }) {
             <Quiz
                 question={question}
                 shuffledAnswers={shuffledAnswers}
+                correctAnswer={answers[0]} 
                 onAnswerSelected={onAnswerSelected} />
 
             <MobileStepper
@@ -70,7 +71,8 @@ export default function Game({ quizDataArray, goToSummary }) {
 
             <Result
                 isAnswerCorrect={isAnswerCorrect}
-                correctAnswer={answers[0]} quote={quote}
+                correctAnswer={answers[0]} 
+                quote={quote}
                 source={source}
                 link={link} />
 
