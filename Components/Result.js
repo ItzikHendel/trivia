@@ -14,7 +14,7 @@ export default function Result({ isAnswerCorrect, correctAnswer, quote, source, 
             <Box color="text.primary" boxShadow={3} p={2} mb={2}>
                 <i>"{quote}"</i>
                 <br />
-                  From <Link href={link} target="_blank">{source}</Link>
+                  From <Link href={link} target="_blank" rel="noopener noreferrer">{source}</Link>
             </Box>
         </>
     )
