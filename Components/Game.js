@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from '@material-ui/core/Container';
 import MobileStepper from '@material-ui/core/MobileStepper';
 //import Button from '@material-ui/core/Button';
@@ -10,24 +10,24 @@ import Quiz from './Quiz';
 import Result from './Result';
 import ActionButton from './ActionButton';
 
-let shuffledAnswers;
 let gameData = [];
 
 export default function Game({ quizDataArray, goToSummary }) {
+    const [shuffledAnswers, setShuffledAnswers] = useState([]);
     const [isAnswerCorrect, setIsAnswerCorrect] = useState(null);
     const [quizIndex, setQuizIndex] = useState(0);
+
+    useEffect(() => {
+        !shuffledAnswers.length && setShuffledAnswers(shuffle(answers));
+    }, [shuffledAnswers, quizDataArray]);
 
     const { question, answers, quote, source, link } = quizDataArray[quizIndex];
     let actionButton;
 
-    if (!shuffledAnswers) {
-        shuffledAnswers = shuffle(answers);
-    }
-
     const onNextClick = () => {
         setIsAnswerCorrect(null);
         setQuizIndex(quizIndex + 1);
-        shuffledAnswers = null;
+        setShuffledAnswers([]);
     };
 
     const onAnswerSelected = (answer) => {
@@ -38,6 +38,14 @@ export default function Game({ quizDataArray, goToSummary }) {
             isCorrect
         });
     }
+
+    const onEnterPress = () => {
+        if (quizIndex + 1 < quizDataArray.length) {
+            onNextClick();
+        } else {
+            goToSummary(gameData);
+        }
+    };
 
     if (isAnswerCorrect === null) {
         actionButton = null;
@@ -57,8 +65,9 @@ export default function Game({ quizDataArray, goToSummary }) {
             <Quiz
                 question={question}
                 shuffledAnswers={shuffledAnswers}
-                correctAnswer={answers[0]} 
-                onAnswerSelected={onAnswerSelected} />
+                correctAnswer={answers[0]}
+                onAnswerSelected={onAnswerSelected}
+                onEnterPress={onEnterPress} />
 
             <MobileStepper
                 variant="dots"
@@ -71,7 +80,7 @@ export default function Game({ quizDataArray, goToSummary }) {
 
             <Result
                 isAnswerCorrect={isAnswerCorrect}
-                correctAnswer={answers[0]} 
+                correctAnswer={answers[0]}
                 quote={quote}
                 source={source}
                 link={link} />

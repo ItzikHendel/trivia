@@ -9,12 +9,25 @@ const answerBgColors = {
     wrong: "error.main"
 }
 
-const Quiz = React.memo(({ question, shuffledAnswers, correctAnswer, onAnswerSelected }) => {
+const Quiz = React.memo(({ question, shuffledAnswers, correctAnswer, onAnswerSelected, onEnterPress }) => {
     const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
 
     useEffect(() => {
         setSelectedAnswerIndex(null);
     }, [question]);
+
+    useEffect(() => {
+        document.addEventListener("keydown", onKeyDown);
+        return () => {
+            document.removeEventListener("keydown", onKeyDown);
+        }
+    }, [selectedAnswerIndex])
+
+    const onKeyDown = (event) => {
+        if (event.key === "Enter" && selectedAnswerIndex !== null) {
+            onEnterPress();
+        }
+    }
 
     const answerRow = (answer, index) => {
         let backgroundColor = answerBgColors.enabled;

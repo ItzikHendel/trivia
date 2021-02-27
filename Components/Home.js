@@ -6,7 +6,7 @@ import Summary from '../Components/Sumarry';
 let summaryData;
 export default function Home() {
     const [gameStatus, setGameStatus] = useState("playing");
-    
+
     const goToSummary = (gameData) => {
         summaryData = gameData;
         setGameStatus("summary");
@@ -14,6 +14,6 @@ export default function Home() {
     return (
         gameStatus === "playing" ?
             <Game quizDataArray={quizDataArray} goToSummary={goToSummary} /> :
-            <Summary summaryData={summaryData}/>
+            <Summary summaryData={summaryData} />
     );
 }
