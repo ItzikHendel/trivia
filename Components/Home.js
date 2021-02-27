@@ -14,6 +14,6 @@ export default function Home() {
     return (
         gameStatus === "playing" ?
             <Game quizDataArray={quizDataArray} goToSummary={goToSummary} /> :
-            <Summary summaryData={summaryData} />
+            <Summary quizData={quizDataArray} summaryData={summaryData} />
     );
 }
