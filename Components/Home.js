@@ -11,9 +11,14 @@ export default function Home() {
         summaryData = gameData;
         setGameStatus("summary");
     }
+
+    const runNewGame = () => {
+        setGameStatus("playing");
+    }
+
     return (
         gameStatus === "playing" ?
             <Game quizDataArray={quizDataArray} goToSummary={goToSummary} /> :
-            <Summary quizData={quizDataArray} summaryData={summaryData} />
+            <Summary quizData={quizDataArray} summaryData={summaryData} runNewGame={runNewGame} />
     );
 }
