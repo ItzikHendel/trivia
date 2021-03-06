@@ -4,7 +4,7 @@ import Icon from '@material-ui/core/Icon';
 
 export default function ActionButton({ text, color = "primary", icon, onClick }) {
     return (
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <div className={"bottom-buttons"}>
             <Button
                 variant="contained"
                 color={color}

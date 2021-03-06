@@ -15,9 +15,7 @@ export default function Summary({ quizData, summaryData, runNewGame }) {
     return (
         <Container>
             <Typography component="div" style={{ backgroundColor: 'GhostWhite', padding: '20px' }}  >
-                <div>
-                    <ActionButton text="New Game" icon="autorenew" onClick={runNewGame} />
-                </div>
+
                 <Box display="flex" justifyContent="center">
                     <Box component="span" fontSize="2rem" color="white" bgcolor="palevioletred" borderRadius={60} p={1} m={5}>{correctAnswersNum}/{summaryData.length}</Box>
                 </Box>
@@ -26,7 +24,7 @@ export default function Summary({ quizData, summaryData, runNewGame }) {
                     const { question, answers, quote, source, link } = item;
                     const { userAnswer, isCorrect } = summaryData[index];
                     return <Paper key={index} elevation={3} m={5}>
-                        <Box color="primary.main"  p={1}>{question}</Box>
+                        <Box color="primary.main" p={1}>{question}</Box>
                         <Box color={isCorrect ? "success.main" : "error.main"} p={1} boxShadow={1}>{userAnswer}</Box>
                         <Result
                             isAnswerCorrect={isCorrect}
@@ -36,7 +34,8 @@ export default function Summary({ quizData, summaryData, runNewGame }) {
                             link={link} />
                     </Paper>
                 })}
-
+               
+                <ActionButton text="New Game" icon="autorenew" onClick={runNewGame} />
             </Typography>
         </Container>
 
