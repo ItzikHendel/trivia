@@ -56,7 +56,7 @@ const Quiz = React.memo(({ question, shuffledAnswers, correctAnswer, onAnswerSel
     }
 
     return (
-        <Typography component="div" style={{ backgroundColor: '#cfe8fc', padding: '2px', marginBottom: '10px' }}  >
+        <Typography component="div" style={{ backgroundColor: 'GhostWhite', padding: '2px', marginBottom: '10px' }}  >
             <Box bgcolor="primary.main" color="primary.contrastText" p={2}>{question}</Box>
             {shuffledAnswers.map((answer, index) => answerRow(answer, index))}
         </Typography>
