@@ -6,12 +6,12 @@ export default function Result({ isAnswerCorrect, correctAnswer, quote, source, 
     if (isAnswerCorrect === null)
         return null;
     const correctAnswerMsg = (<>
-        <Box color="primary.main" boxShadow={1} mb={2}>The correct answer is: <b>{correctAnswer}</b></Box>
+        <Box color="success.main" boxShadow={3} p={2} m={2}><b>{correctAnswer}</b></Box>
     </>);
     return (
         <>
             <Typography component="div" variant="h6" style={{ backgroundColor: '' }} > {isAnswerCorrect ? "" : correctAnswerMsg} </Typography>
-            <Box color="text.primary" boxShadow={3} p={2} mb={2}>
+            <Box color="text.primary" boxShadow={3} p={2} m={2}>
                 <i>"{quote}"</i>
                 <br />
                   From <Link href={link} target="_blank" rel="noopener noreferrer">{source}</Link>

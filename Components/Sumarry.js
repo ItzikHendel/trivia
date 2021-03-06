@@ -14,30 +14,30 @@ export default function Summary({ quizData, summaryData, runNewGame }) {
 
     return (
         <Container>
-
-            <Typography variant="h1">
+            <Typography component="div" style={{ backgroundColor: '#cfe8fc', padding: '20px' }}  >
+                <div>
+                    <ActionButton text="New Game" icon="autorenew" onClick={runNewGame} />
+                </div>
                 <Box display="flex" justifyContent="center">
-                    <Box component="span" color="white" bgcolor="palevioletred" borderRadius={60} p={1} m={5}>{correctAnswersNum}/{summaryData.length}</Box>
+                    <Box component="span" fontSize="2rem" color="white" bgcolor="palevioletred" borderRadius={60} p={1} m={5}>{correctAnswersNum}/{summaryData.length}</Box>
                 </Box>
+
+                {quizData.map((item, index) => {
+                    const { question, answers, quote, source, link } = item;
+                    const { userAnswer, isCorrect } = summaryData[index];
+                    return <Paper key={index} elevation={3} m={5}>
+                        <Box color="primary.main" boxShadow={1} p={1}>{question}</Box>
+                        <Box color={isCorrect ? "success.main" : "error.main"} p={1}>{userAnswer}</Box>
+                        <Result
+                            isAnswerCorrect={isCorrect}
+                            correctAnswer={answers[0]} x
+                            quote={quote}
+                            source={source}
+                            link={link} />
+                    </Paper>
+                })}
+
             </Typography>
-
-            {quizData.map((item, index) => {
-                const { question, answers, quote, source, link } = item;
-                const { userAnswer, isCorrect } = summaryData[index];
-                return <Paper key={index} elevation={3}>
-                    <Box color="primary.main" p={1}>{question}</Box>
-                    <Box color={isCorrect ? "success.main" : "error.main"} p={1}>{userAnswer}</Box>
-                    <Result
-                        isAnswerCorrect={isCorrect}
-                        correctAnswer={answers[0]}
-                        quote={quote}
-                        source={source}
-                        link={link} />
-                </Paper>
-            })}
-
-            <ActionButton text="New Game" icon="autorenew" onClick={runNewGame} />
-            
         </Container>
 
     )
