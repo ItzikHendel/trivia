@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from '../styles/Quiz.module.css';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
@@ -30,29 +31,24 @@ const Quiz = React.memo(({ question, shuffledAnswers, correctAnswer, onAnswerSel
     }
 
     const answerRow = (answer, index) => {
-        let backgroundColor = answerBgColors.enabled;
+        let answerClassName = styles.answer;
         if (selectedAnswerIndex !== null) {
             if (selectedAnswerIndex === index) {
-                backgroundColor = answer === correctAnswer ? answerBgColors.correct : answerBgColors.wrong;
-            } else {
-                backgroundColor = answerBgColors.disabled;
-            }
+                answerClassName = answer === correctAnswer ? `${styles.answer} ${styles.correct}` : `${styles.answer} ${styles.wrong}`;
+            } 
         }
 
-        return <Box
-            key={index}
-            bgcolor={backgroundColor}
-            color="background.paper"
-            m={2}
-            p={2}
-            onClick={() => {
-                if (selectedAnswerIndex === null) {
-                    onAnswerSelected(answer);
-                    setSelectedAnswerIndex(index);
-                }
-            }}>
-            {answer}
-        </Box>;
+        return (
+            <button
+                key={index}
+                className={answerClassName}
+                onClick={() => {
+                    if (selectedAnswerIndex === null) {
+                        onAnswerSelected(answer);
+                        setSelectedAnswerIndex(index);
+                    }
+                }}> {answer} </button>
+        )
     }
 
     return (
