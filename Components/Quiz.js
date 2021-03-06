@@ -32,16 +32,19 @@ const Quiz = React.memo(({ question, shuffledAnswers, correctAnswer, onAnswerSel
 
     const answerRow = (answer, index) => {
         let answerClassName = styles.answer;
+        let isAnswerDisable = false;
         if (selectedAnswerIndex !== null) {
+            isAnswerDisable = true;
             if (selectedAnswerIndex === index) {
                 answerClassName = answer === correctAnswer ? `${styles.answer} ${styles.correct}` : `${styles.answer} ${styles.wrong}`;
-            } 
+            }
         }
 
         return (
             <button
                 key={index}
                 className={answerClassName}
+                disabled={isAnswerDisable}
                 onClick={() => {
                     if (selectedAnswerIndex === null) {
                         onAnswerSelected(answer);
@@ -52,7 +55,7 @@ const Quiz = React.memo(({ question, shuffledAnswers, correctAnswer, onAnswerSel
     }
 
     return (
-        <Typography component="div" style={{ backgroundColor: 'GhostWhite', padding: '2px', marginBottom: '10px' }}  >
+        <Typography component="div" style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'GhostWhite', padding: '2px', marginBottom: '10px' }}  >
             <Box bgcolor="primary.main" color="primary.contrastText" p={2}>{question}</Box>
             {shuffledAnswers.map((answer, index) => answerRow(answer, index))}
         </Typography>
